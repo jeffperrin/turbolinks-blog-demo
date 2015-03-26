@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_url, notice: "'#{@post.title}' was created."
     else
-      render :new
+      render :new, change: 'post-form'
     end
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     if @post.update_attributes(post_params)
       redirect_to posts_url, notice: "'#{@post.title}' was updated."
     else
-      render :edit
+      render :edit, change: 'post-form'
     end
   end
 

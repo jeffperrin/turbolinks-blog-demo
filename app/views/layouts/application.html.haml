@@ -17,11 +17,12 @@
     .container
       .row
         .col-sm-12.blog-main
-          - flash.each do |name, msg|
-            .alert(class="alert-#{name}")
-              %button.close(data-dismiss='alert')
-                %span &times;
-              = msg
+          #flash(data-turbolinks-temporary)
+            - flash.each do |name, msg|
+              .alert(class="alert-#{name}")
+                %button.close(data-dismiss='alert')
+                  %span &times;
+                = msg
 
           = yield
 
