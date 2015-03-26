@@ -1,3 +1,5 @@
+$masthead-color: #428bca;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datepicker3";
@@ -13,6 +15,11 @@
 html {
   position: relative;
   min-height: 100%;
+}
+
+html.turbolinks-progress-bar::before {
+  background-color: lighten($masthead-color, 25%) !important;
+  height: 4px !important;
 }
 
 body {
@@ -60,7 +67,7 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background-color: $masthead-color;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
   margin-bottom: 25px;
