@@ -11,17 +11,31 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to posts_url, notice: "#{@post.title} was created."
+      redirect_to posts_url, notice: "'#{@post.title}' was created."
     else
       render :new
     end
   end
 
+  def update
+    @post = Post.find(params[:id])
+
+    if @post.update_attributes(post_params)
+      redirect_to posts_url, notice: "'#{@post.title}' was updated."
+    else
+      render :edit
+    end
+  end
+
   private def post_params
-    params.require(:post).permit(:title, :body, :published_at)
+    params.require(:post).permit(:id, :title, :body, :published_at)
   end
 end

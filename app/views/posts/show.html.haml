@@ -1,6 +1,10 @@
 %h1= @post.title
 
 .row
-  .col-xs-12
-    .text-muted= "Published #{@post.published_on}"
+  .col-xs-6.text-muted= "Published #{@post.published_on}"
+  .col-xs-6.text-right
+    = link_to edit_post_url(@post), class: 'btn btn-default' do
+      Edit
+      %span.glyphicon.glyphicon-pencil
+.row
   .col-xs-12= @post.body
