@@ -37,6 +37,16 @@ h6, .h6 {
   }
 }
 
+.field_with_errors {
+  label {
+    color: $brand-danger;
+  }
+
+  input, textarea {
+    border-color: $brand-danger;
+  }
+}
+
 
 /*
  * Masthead for nav

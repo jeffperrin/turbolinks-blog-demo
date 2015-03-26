@@ -4,6 +4,7 @@
       %h2 Create new post
 
     .panel-body
+      = render 'layouts/errors', target: @post
       .form-group
         = f.label :title
         = f.text_field :title, class: 'form-control'
