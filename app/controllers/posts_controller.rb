@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.order('published_at DESC, updated_at DESC').all
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
   end
