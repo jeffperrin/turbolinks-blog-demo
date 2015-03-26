@@ -17,9 +17,12 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
-$(document).ready(function() {
+$(document).ready(onLoad);
+$(document).on('page:load', onLoad);
+
+function onLoad() {
   $('input[type=date]').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd'
   });
-});
+}

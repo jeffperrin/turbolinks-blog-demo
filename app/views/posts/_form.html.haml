@@ -23,6 +23,6 @@
           Cancel
           %span.glyphicon.glyphicon-remove
 
-        = button_tag class: 'btn btn-primary' do
+        = button_tag class: 'btn btn-primary', data: { disable_with: 'Saving...' } do
           Save
           %span.glyphicon.glyphicon-ok
