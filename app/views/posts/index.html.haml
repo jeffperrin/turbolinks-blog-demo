@@ -1,6 +1,10 @@
+.blog-header
+  %h1.blog-title Turbolinks demo blog app thing
+  %p.lead.blog-description Sometimes when we touch, the honesty's too much...
+
 - if @posts.blank?
   .jumbotron
-    %p.text-center There is nothing to read. Would you like to change that?
+    %h3.text-center There is nothing to read! Would you like to change that?
     %p.text-center
       = link_to new_post_path, class: 'btn btn-lg btn-success' do
         Write something
