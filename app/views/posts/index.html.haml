@@ -10,15 +10,23 @@
         Write something
         %span.glyphicon.glyphicon-pencil
 - else
-  %ul.list-group
-    - @posts.each do |p|
-      %li.list-group-item
-        .row
-          .col-xs-8
-            %h2= p.title
-          .col-xs-2.text-center
-            %p= p.published_on
-          .col-xs-2.text-right
-            = link_to p, class: 'btn btn-default' do
-              Read
-              %span.glyphicon.glyphicon-eye-open
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-xs-10
+          Recent posts:
+        .col-xs-2.text-right
+          = link_to new_post_path, class: 'btn btn-success' do
+            %span.glyphicon.glyphicon-pencil
+    %ul.list-group
+      - @posts.each do |p|
+        %li.list-group-item
+          .row
+            .col-xs-8
+              %h2= p.title
+            .col-xs-2.text-center
+              %p= p.published_on
+            .col-xs-2.text-right
+              = link_to p, class: 'btn btn-default' do
+                Read
+                %span.glyphicon.glyphicon-eye-open
