@@ -11,6 +11,9 @@
         = f.label :title
         = f.text_field :title, class: 'form-control'
       .form-group
+        = f.label :published_at
+        = f.date_field :published_at, class: 'form-control'
+      .form-group
         = f.label :body
         = f.text_area :body, class: 'form-control', rows: 8
 

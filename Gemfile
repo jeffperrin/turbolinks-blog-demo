@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'redcarpet'
+gem 'bootstrap-datepicker-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
