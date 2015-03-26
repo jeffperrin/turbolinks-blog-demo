@@ -10,7 +10,9 @@
     .blog-masthead
       .container
         %nav.blog-nav
-          = link_to "Home", root_url, class: 'blog-nav-item'
+          = link_to root_url, class: 'blog-nav-item' do
+            .glyphicon.glyphicon-home
+            Home
 
     .container
       .row
