@@ -1,8 +1,10 @@
 %br
 = form_for @post do |f|
+
   .panel.panel-default
     .panel-heading
       %h2 Create new post
+
     .panel-body
       .form-group
         = f.label :title
@@ -10,11 +12,13 @@
       .form-group
         = f.label :body
         = f.text_area :body, class: 'form-control', rows: 8
+
     .panel-footer
       .text-right
         = link_to posts_path, class: 'btn btn-warning' do
           Cancel
           %span.glyphicon.glyphicon-remove
+
         = button_tag class: 'btn btn-primary' do
           Save
           %span.glyphicon.glyphicon-ok
