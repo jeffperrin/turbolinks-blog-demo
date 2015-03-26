@@ -1,0 +1,8 @@
+- if @posts.blank?
+  %p.text-center There is nothing to read. Would you like to change that?
+  %p.text-center
+    = link_to new_post_path, class: 'btn btn-lg btn-success' do
+      "Write something"
+- @posts.each do |p|
+  %h2= p.title
+  %p= p.body

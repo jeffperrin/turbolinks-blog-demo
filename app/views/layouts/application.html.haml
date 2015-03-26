@@ -2,9 +2,26 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title BlogDemo
+    %title Super nice blog
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    = yield
+    .blog-masthead
+      .container
+        %nav.blog-nav
+          = link_to "Home", root_url, class: 'blog-nav-item'
+
+    .container
+      .blog-header
+        %h1.blog-title Turbolinks demo blog app thing
+        %p.lead.blog-description Sometimes when we touch, the honesty's too much...
+      .row
+        .col-sm-12.blog-main
+          = yield
+
+    %footer.blog-footer
+      %p
+        This is a blog built by
+        = link_to "Jeff Perrin", 'http://jeffperrin.com'
+        to demo some features of Turbolinks
