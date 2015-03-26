@@ -9,6 +9,16 @@
       = link_to new_post_path, class: 'btn btn-lg btn-success' do
         Write something
         %span.glyphicon.glyphicon-pencil
-- @posts.each do |p|
-  %h2= p.title
-  %p= p.body
+- else
+  %ul.list-group
+    - @posts.each do |p|
+      %li.list-group-item
+        .row
+          .col-xs-8
+            %h2= p.title
+          .col-xs-2.text-center
+            %p= p.published_on
+          .col-xs-2.text-right
+            = link_to p, class: 'btn btn-default' do
+              Read
+              %span.glyphicon.glyphicon-eye-open
