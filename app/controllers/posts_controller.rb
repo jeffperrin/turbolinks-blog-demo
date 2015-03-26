@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to action: :index
+      redirect_to posts_url, notice: "#{@post.title} was created."
     else
       render :new
     end
