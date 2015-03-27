@@ -15,7 +15,7 @@
     .panel-heading
       .row
         .col-xs-6
-          = form_tag posts_url, method: 'get', remote: true do
+          = form_tag posts_url, method: 'get' do
             .input-group
               = text_field_tag :search, params[:search], autofocus: true, class: 'form-control', placeholder: 'Search posts...'
               .input-group-btn
