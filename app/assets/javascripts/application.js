@@ -17,12 +17,26 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
-$(document).ready(onLoad);
-$(document).on('page:load', onLoad);
+$(document).ready(onTurbolinksPageLoad);
+$(document).ready(onFullPageRefresh);
 
-function onLoad() {
+$(document).on('page:load', onTurbolinksPageLoad);
+
+function onTurbolinksPageLoad() {
   $('input[type=date]').datepicker({
     autoclose: true,
     format: 'yyyy-mm-dd'
+  });
+}
+
+function onFullPageRefresh() {
+  $(document).on('submit', 'form[method="get"]', function(e) {
+    e.preventDefault();
+
+    var form = $(e.target);
+    var url = form.attr('action');
+    var initialSeparator = (url.indexOf('?') == -1 ? '?' : '&');
+
+    Turbolinks.visit(url + initialSeparator + form.serialize());
   });
 }
