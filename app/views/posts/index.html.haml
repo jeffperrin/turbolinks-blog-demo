@@ -10,14 +10,25 @@
         Write something
         %span.glyphicon.glyphicon-pencil
 - else
-  .panel.panel-default
+
+  .panel.panel-default#posts
     .panel-heading
       .row
-        .col-xs-10
-          Recent posts:
-        .col-xs-2.text-right
+        .col-xs-6
+          = form_tag posts_url, method: 'get', remote: true do
+            .input-group
+              = text_field_tag :search, params[:search], autofocus: true, class: 'form-control', placeholder: 'Search posts...'
+              .input-group-btn
+                %button.btn.btn-primary(type="submit")
+                  .glyphicon.glyphicon-search
+                - unless params[:search].blank?
+                  = link_to request.path, class: 'btn btn-warning btn-clear-search', 'data-toggle' => 'tooltip', title: 'Clear the search' do
+                    .glyphicon.glyphicon-remove
+
+        .col-xs-6.text-right
           = link_to new_post_path, class: 'btn btn-success' do
             %span.glyphicon.glyphicon-pencil
+
     %ul.list-group
       - @posts.each do |p|
         %li.list-group-item

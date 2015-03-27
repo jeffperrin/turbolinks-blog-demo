@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.order('published_at DESC, updated_at DESC').all
+    scope = Post.order('published_at DESC, updated_at DESC').all
+    if params[:search].present?
+      q = "%#{params[:search]}%"
+      scope = scope.where('posts.title LIKE ? OR posts.body LIKE ?', q, q)
+    end
+
+    @posts = scope
   end
 
   def show
