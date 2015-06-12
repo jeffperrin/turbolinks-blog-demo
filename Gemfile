@@ -18,7 +18,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'bootstrap-datepicker-rails'
-gem 'turbolinks', git: 'git@github.com:rails/turbolinks.git'
+gem 'turbolinks', github: 'rails/turbolinks'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
