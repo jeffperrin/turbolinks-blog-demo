@@ -18,6 +18,7 @@ gem 'haml-rails'
 gem 'redcarpet'
 gem 'bootstrap-datepicker-rails'
 gem 'turbolinks', github: 'rails/turbolinks'
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
