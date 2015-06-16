@@ -41,7 +41,13 @@ class PostsController < ApplicationController
     end
   end
 
-  private def post_params
-    params.require(:post).permit(:id, :title, :body, :published_at)
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_url, change: 'posts', notice: 'That post and all its comments have been UTTERLY DESTROYED.'
   end
+
+  private def post_params
+  params.require(:post).permit(:id, :title, :body, :published_at)
+end
 end

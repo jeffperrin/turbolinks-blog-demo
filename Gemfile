@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
-
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,7 +17,9 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'redcarpet'
 gem 'bootstrap-datepicker-rails'
-gem 'turbolinks', git: 'git@github.com:rails/turbolinks.git'
+gem 'turbolinks', github: 'rails/turbolinks'
+gem 'rails_12factor', group: :production
+gem 'puma'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
