@@ -34,12 +34,14 @@
         - @posts.each do |p|
           %li.list-group-item
             .row
-              .col-xs-8
+              .col-xs-7
                 %h2= p.title
               .col-xs-2.text-center
                 %p= p.published_on
-              .col-xs-2.text-right
-                = link_to p, class: 'btn btn-default' do
-                  Read
-                  %span.glyphicon.glyphicon-eye-open
-                = button_to('Destroy', post_url(p), method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'blamming...' }, class: 'btn btn-warning')
+              .col-xs-3.text-right
+                .btn-group
+                  = link_to p, class: 'btn btn-default' do
+                    Read
+                    .glyphicon.glyphicon-eye-open
+                  = link_to p, class: 'btn btn-danger', method: 'delete', remote: true, data: { confirm: 'Really?' } do
+                    .glyphicon.glyphicon-remove
