@@ -1,0 +1,18 @@
+= form_for [comment.post, comment], remote: true, html: {id: 'comment-form'} do |f|
+  .panel.panel-default
+    .panel-heading
+      %h4 Add a comment
+    .panel-body
+      = render 'layouts/errors', target: comment
+      .form-group
+        = f.label :commenter_name, 'Your name'
+        = f.text_field :commenter_name, class: 'form-control'
+      .form-group
+        = f.label :body, 'What do you want to say?'
+        = f.text_area :body, class: 'form-control', rows: 4
+
+    .panel-footer
+      .text-right
+        = button_tag class: 'btn btn-primary', data: { disable_with: 'Saving...' } do
+          Comment
+          %span.glyphicon.glyphicon-ok
