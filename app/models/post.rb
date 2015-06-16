@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 250 }
   validates :body, presence: true
 
   has_many :comments, dependent: :delete_all
