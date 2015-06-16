@@ -2,42 +2,44 @@
   %h1.blog-title Turbolinks demo blog app thing
   %p.lead.blog-description Sometimes when we touch, the honesty's too much...
 
-- if @posts.blank?
-  .jumbotron
-    %h3.text-center There is nothing to read! Would you like to change that?
-    %p.text-center
-      = link_to new_post_path, class: 'btn btn-lg btn-success' do
-        Write something
-        %span.glyphicon.glyphicon-pencil
-- else
+#posts
+  - if @posts.blank?
+    .jumbotron
+      %h3.text-center There is nothing to read! Would you like to change that?
+      %p.text-center
+        = link_to new_post_path, class: 'btn btn-lg btn-success' do
+          Write something
+          %span.glyphicon.glyphicon-pencil
+  - else
 
-  .panel.panel-default#posts
-    .panel-heading
-      .row
-        .col-xs-6
-          = form_tag posts_url, method: 'get' do
-            .input-group
-              = text_field_tag :search, params[:search], autofocus: true, class: 'form-control', placeholder: 'Search posts...'
-              .input-group-btn
-                %button.btn.btn-primary(type="submit")
-                  .glyphicon.glyphicon-search
-                - unless params[:search].blank?
-                  = link_to request.path, class: 'btn btn-warning btn-clear-search', 'data-toggle' => 'tooltip', title: 'Clear the search' do
-                    .glyphicon.glyphicon-remove
+    .panel.panel-default#posts
+      .panel-heading
+        .row
+          .col-xs-6
+            = form_tag posts_url, method: 'get' do
+              .input-group
+                = text_field_tag :search, params[:search], autofocus: true, class: 'form-control', placeholder: 'Search posts...'
+                .input-group-btn
+                  %button.btn.btn-primary(type="submit")
+                    .glyphicon.glyphicon-search
+                  - unless params[:search].blank?
+                    = link_to request.path, class: 'btn btn-warning btn-clear-search', 'data-toggle' => 'tooltip', title: 'Clear the search' do
+                      .glyphicon.glyphicon-remove
 
-        .col-xs-6.text-right
-          = link_to new_post_path, class: 'btn btn-success' do
-            %span.glyphicon.glyphicon-pencil
+          .col-xs-6.text-right
+            = link_to new_post_path, class: 'btn btn-success' do
+              %span.glyphicon.glyphicon-pencil
 
-    %ul.list-group
-      - @posts.each do |p|
-        %li.list-group-item
-          .row
-            .col-xs-8
-              %h2= p.title
-            .col-xs-2.text-center
-              %p= p.published_on
-            .col-xs-2.text-right
-              = link_to p, class: 'btn btn-default' do
-                Read
-                %span.glyphicon.glyphicon-eye-open
+      %ul.list-group
+        - @posts.each do |p|
+          %li.list-group-item
+            .row
+              .col-xs-8
+                %h2= p.title
+              .col-xs-2.text-center
+                %p= p.published_on
+              .col-xs-2.text-right
+                = link_to p, class: 'btn btn-default' do
+                  Read
+                  %span.glyphicon.glyphicon-eye-open
+                = button_to('Destroy', post_url(p), method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'blamming...' }, class: 'btn btn-warning')
